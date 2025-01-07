@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import uuid
 
+# for each model created, make migrations and migrate and register in admin.py file
 class PasswordReset(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     reset_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
