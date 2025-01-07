@@ -1,6 +1,8 @@
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-oyl_@femvf&$1inb9iayb%=+rj^=-5j(5-u$&%!3j9416$&t^m'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,8 +129,8 @@ LOGIN_URL = 'login'
 EMAIL_HOST="smtp.gmail.com"
 EMAIL_PORT=465
 EMAIL_USE_SSL=True
-EMAIL_HOST_USER="charleschmidth@gmail.com"
-EMAIL_HOST_PASSWORD="oyqp ekux ivdk hbao"
+EMAIL_HOST_USER=str(os.getenv('EMAIL_HOST_USER'))
+EMAIL_HOST_PASSWORD=str(os.getenv('EMAIL_HOST_PASSWORD'))
 
 
 # username used = John Doe
